@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using EFGetStarted.AspNetCore.NewDb.Models;
 
 namespace EFGetStarted.AspNetCore.NewDb.Models
 {
@@ -15,6 +16,7 @@ namespace EFGetStarted.AspNetCore.NewDb.Models
         public DbSet<Fattura> Fattura { get; set; }
         public DbSet<Spedizione> Spedizione { get; set; }
         public DbSet<Indirizzo> Indirizzo { get; set; }
+        public DbSet<EFGetStarted.AspNetCore.NewDb.Models.Contatto> Contatto { get; set; }
     }
 
     public class Blog
@@ -36,25 +38,43 @@ namespace EFGetStarted.AspNetCore.NewDb.Models
     }
     public class Cliente
     {
-        public int ClienteId { get; set; }
+        public string ClienteId { get; set; }
         public string nome { get; set; }
         public string cognome { get; set; }
         public string dNascita { get; set; }
         public char sesso { get; set; }
+        public int ContattoId { get; set; }
+        public Contatto Contatto { get; set; }
+        public int SpedizioneId { get; set; }
+        public Spedizione Spedizione { get; set; }
     }
     public class Fattura
     {
-        public int ClienteId { get; set; }
-        public string Nome { get; set; }
+        public int FatturaId { get; set; }
+        public int quantitaProdotto { get; set; }
+        public int iva { get; set; }
+        public int sconto { get; set; }
+        public decimal totFattura { get; set; }
     }
     public class Spedizione
     {
-        public int ClienteId { get; set; }
-        public string Nome { get; set; }
+        public int SpedizioneId { get; set; }
+        public string nome { get; set; }
+        public string descrizione { get; set; }
+        public decimal costiSpedizione { get; set; }
     }
     public class Indirizzo
     {
-        public int ClienteId { get; set; }
-        public string Nome { get; set; }
+        public int IndirizzoId { get; set; }
+        public string indirizzoSpedizione { get; set; }
+        public string indirizzoFatturazione { get; set; }
+    }
+    public class Contatto
+    {
+        public int ContattoId { get; set; }
+        public long nTelefono { get; set; }
+        public long nFax { get; set; }
+        public long nCellulare { get; set; }
+        public string eMail { get; set; }
     }
 }

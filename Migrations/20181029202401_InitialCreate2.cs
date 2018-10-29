@@ -2,7 +2,7 @@
 
 namespace EFGetStarted.AspNetCore.NewDb.Migrations
 {
-    public partial class _1 : Migration
+    public partial class InitialCreate2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

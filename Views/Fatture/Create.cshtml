@@ -1,0 +1,48 @@
+@model EFGetStarted.AspNetCore.NewDb.Models.Fattura
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>Fattura</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="quantitaProdotto" class="control-label"></label>
+                <input asp-for="quantitaProdotto" class="form-control" />
+                <span asp-validation-for="quantitaProdotto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="iva" class="control-label"></label>
+                <input asp-for="iva" class="form-control" />
+                <span asp-validation-for="iva" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="sconto" class="control-label"></label>
+                <input asp-for="sconto" class="form-control" />
+                <span asp-validation-for="sconto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="totFattura" class="control-label"></label>
+                <input asp-for="totFattura" class="form-control" />
+                <span asp-validation-for="totFattura" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

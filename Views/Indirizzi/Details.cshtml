@@ -1,0 +1,30 @@
+@model EFGetStarted.AspNetCore.NewDb.Models.Indirizzo
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Indirizzo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.indirizzoSpedizione)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.indirizzoSpedizione)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.indirizzoFatturazione)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.indirizzoFatturazione)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.IndirizzoId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

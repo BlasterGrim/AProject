@@ -1,0 +1,53 @@
+@model IEnumerable<EFGetStarted.AspNetCore.NewDb.Models.Contatto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nTelefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nFax)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nCellulare)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.eMail)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nTelefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nFax)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nCellulare)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.eMail)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ContattoId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ContattoId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ContattoId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

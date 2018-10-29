@@ -27,6 +27,82 @@ namespace EFGetStarted.AspNetCore.NewDb.Migrations
                     b.ToTable("Blogs");
                 });
 
+            modelBuilder.Entity("EFGetStarted.AspNetCore.NewDb.Models.Cliente", b =>
+                {
+                    b.Property<string>("ClienteId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("ContattoId");
+
+                    b.Property<int>("SpedizioneId");
+
+                    b.Property<string>("cognome");
+
+                    b.Property<string>("dNascita");
+
+                    b.Property<string>("nome");
+
+                    b.Property<char>("sesso");
+
+                    b.HasKey("ClienteId");
+
+                    b.HasIndex("ContattoId");
+
+                    b.HasIndex("SpedizioneId");
+
+                    b.ToTable("Cliente");
+                });
+
+            modelBuilder.Entity("EFGetStarted.AspNetCore.NewDb.Models.Contatto", b =>
+                {
+                    b.Property<int>("ContattoId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("eMail");
+
+                    b.Property<int>("nCellulare");
+
+                    b.Property<int>("nFax");
+
+                    b.Property<int>("nTelefono");
+
+                    b.HasKey("ContattoId");
+
+                    b.ToTable("Contatto");
+                });
+
+            modelBuilder.Entity("EFGetStarted.AspNetCore.NewDb.Models.Fattura", b =>
+                {
+                    b.Property<int>("FatturaId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("iva");
+
+                    b.Property<int>("quantitaProdotto");
+
+                    b.Property<int>("sconto");
+
+                    b.Property<decimal>("totFattura");
+
+                    b.HasKey("FatturaId");
+
+                    b.ToTable("Fattura");
+                });
+
+            modelBuilder.Entity("EFGetStarted.AspNetCore.NewDb.Models.Indirizzo", b =>
+                {
+                    b.Property<int>("IndirizzoId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("indirizzoFatturazione");
+
+                    b.Property<string>("indirizzoSpedizione");
+
+                    b.HasKey("IndirizzoId");
+
+                    b.ToTable("Indirizzo");
+                });
+
             modelBuilder.Entity("EFGetStarted.AspNetCore.NewDb.Models.Post", b =>
                 {
                     b.Property<int>("PostId")
@@ -43,6 +119,35 @@ namespace EFGetStarted.AspNetCore.NewDb.Migrations
                     b.HasIndex("BlogId");
 
                     b.ToTable("Posts");
+                });
+
+            modelBuilder.Entity("EFGetStarted.AspNetCore.NewDb.Models.Spedizione", b =>
+                {
+                    b.Property<int>("SpedizioneId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Nome");
+
+                    b.Property<decimal>("costiSpedizione");
+
+                    b.Property<string>("descrizione");
+
+                    b.HasKey("SpedizioneId");
+
+                    b.ToTable("Spedizione");
+                });
+
+            modelBuilder.Entity("EFGetStarted.AspNetCore.NewDb.Models.Cliente", b =>
+                {
+                    b.HasOne("EFGetStarted.AspNetCore.NewDb.Models.Contatto", "Contatto")
+                        .WithMany()
+                        .HasForeignKey("ContattoId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("EFGetStarted.AspNetCore.NewDb.Models.Spedizione", "Spedizione")
+                        .WithMany()
+                        .HasForeignKey("SpedizioneId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("EFGetStarted.AspNetCore.NewDb.Models.Post", b =>
