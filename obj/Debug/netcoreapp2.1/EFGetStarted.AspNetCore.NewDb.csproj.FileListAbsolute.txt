@@ -65,3 +65,8 @@
 /home/fede/EFGetStarted.AspNetCore.NewDb/obj/Debug/netcoreapp2.1/Razor/Views/Cliente/Details.g.cshtml.cs
 /home/fede/EFGetStarted.AspNetCore.NewDb/obj/Debug/netcoreapp2.1/Razor/Views/Cliente/Edit.g.cshtml.cs
 /home/fede/EFGetStarted.AspNetCore.NewDb/obj/Debug/netcoreapp2.1/Razor/Views/Cliente/Index.g.cshtml.cs
+/home/fede/EFGetStarted.AspNetCore.NewDb/obj/Debug/netcoreapp2.1/Razor/Views/Clienti/Create.g.cshtml.cs
+/home/fede/EFGetStarted.AspNetCore.NewDb/obj/Debug/netcoreapp2.1/Razor/Views/Clienti/Delete.g.cshtml.cs
+/home/fede/EFGetStarted.AspNetCore.NewDb/obj/Debug/netcoreapp2.1/Razor/Views/Clienti/Details.g.cshtml.cs
+/home/fede/EFGetStarted.AspNetCore.NewDb/obj/Debug/netcoreapp2.1/Razor/Views/Clienti/Edit.g.cshtml.cs
+/home/fede/EFGetStarted.AspNetCore.NewDb/obj/Debug/netcoreapp2.1/Razor/Views/Clienti/Index.g.cshtml.cs
