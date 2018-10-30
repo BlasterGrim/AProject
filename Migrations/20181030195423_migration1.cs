@@ -2,19 +2,32 @@
 
 namespace EFGetStarted.AspNetCore.NewDb.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class migration1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Blogs",
+                columns: table => new
+                {
+                    BlogId = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Url = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Blogs", x => x.BlogId);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Contatto",
                 columns: table => new
                 {
                     ContattoId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    nTelefono = table.Column<int>(nullable: false),
-                    nFax = table.Column<int>(nullable: false),
-                    nCellulare = table.Column<int>(nullable: false),
+                    nTelefono = table.Column<string>(nullable: true),
+                    nFax = table.Column<string>(nullable: true),
+                    nCellulare = table.Column<string>(nullable: true),
                     eMail = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -58,13 +71,34 @@ namespace EFGetStarted.AspNetCore.NewDb.Migrations
                 {
                     SpedizioneId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Nome = table.Column<string>(nullable: true),
+                    nome = table.Column<string>(nullable: true),
                     descrizione = table.Column<string>(nullable: true),
                     costiSpedizione = table.Column<decimal>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Spedizione", x => x.SpedizioneId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Posts",
+                columns: table => new
+                {
+                    PostId = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Title = table.Column<string>(nullable: true),
+                    Content = table.Column<string>(nullable: true),
+                    BlogId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Posts", x => x.PostId);
+                    table.ForeignKey(
+                        name: "FK_Posts_Blogs_BlogId",
+                        column: x => x.BlogId,
+                        principalTable: "Blogs",
+                        principalColumn: "BlogId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -105,6 +139,11 @@ namespace EFGetStarted.AspNetCore.NewDb.Migrations
                 name: "IX_Cliente_SpedizioneId",
                 table: "Cliente",
                 column: "SpedizioneId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Posts_BlogId",
+                table: "Posts",
+                column: "BlogId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -119,10 +158,16 @@ namespace EFGetStarted.AspNetCore.NewDb.Migrations
                 name: "Indirizzo");
 
             migrationBuilder.DropTable(
+                name: "Posts");
+
+            migrationBuilder.DropTable(
                 name: "Contatto");
 
             migrationBuilder.DropTable(
                 name: "Spedizione");
+
+            migrationBuilder.DropTable(
+                name: "Blogs");
         }
     }
 }

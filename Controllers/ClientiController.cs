@@ -19,10 +19,35 @@ namespace EFGetStarted.AspNetCore.NewDb.Controllers
         }
 
         // GET: Clienti
-        public async Task<IActionResult> Index()
+        /*public async Task<IActionResult> Index()
         {
             var bloggingContext = _context.Cliente.Include(c => c.Contatto).Include(c => c.Spedizione);
             return View(await bloggingContext.ToListAsync());
+        }*/
+
+        public async Task<IActionResult> Index(string SearchString, string SearchString1, string SearchString2, char SearchString3)
+        {
+            var name = from c in _context.Cliente.Include(c => c.Contatto).Include(c => c.Spedizione)
+                       select c;
+
+            if (!String.IsNullOrEmpty(SearchString))
+            {
+                name = name.Where(s => s.nome.Contains(SearchString));
+            }
+            if (!String.IsNullOrEmpty(SearchString1))
+            {
+                name = name.Where(s => s.cognome.Contains(SearchString1));
+            }
+            if (!String.IsNullOrEmpty(SearchString2))
+            {
+                name = name.Where(s => s.dNascita.Contains(SearchString2));
+            }
+            if (!char.IsControl(SearchString3))
+            {
+                name = name.Where(s => s.sesso.Equals(SearchString3));
+            }
+
+            return View(await name.ToListAsync());
         }
 
         // GET: Clienti/Details/5
@@ -52,6 +77,7 @@ namespace EFGetStarted.AspNetCore.NewDb.Controllers
             ViewData["SpedizioneId"] = new SelectList(_context.Spedizione, "SpedizioneId", "SpedizioneId");
             return View();
         }
+
 
         // POST: Clienti/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 

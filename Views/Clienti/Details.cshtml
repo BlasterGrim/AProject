@@ -4,42 +4,39 @@
     ViewData["Title"] = "Details";
 }
 
-<h2>Details</h2>
+<h2>Dettagli</h2>
 
 <div>
     <h4>Cliente</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.nome)
+            Nome
         </dt>
         <dd>
             @Html.DisplayFor(model => model.nome)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.cognome)
+            Cognome
         </dt>
         <dd>
             @Html.DisplayFor(model => model.cognome)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.dNascita)
+            Data di nascita
         </dt>
         <dd>
             @Html.DisplayFor(model => model.dNascita)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.sesso)
+            Sesso
         </dt>
         <dd>
             @Html.DisplayFor(model => model.sesso)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Contatto)
+            Contatti
         </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Contatto.ContattoId)
-        </dd>
         <dd>
             @Html.DisplayFor(model => model.Contatto.nTelefono)
         </dd>
@@ -50,7 +47,7 @@
             @Html.DisplayFor(model => model.Contatto.nCellulare)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Spedizione)
+            Tipi di spedizione
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Spedizione.SpedizioneId)
@@ -58,6 +55,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.ClienteId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.ClienteId">Modifica</a> |
+    <a asp-action="Index">Torna alla lista</a>
 </div>

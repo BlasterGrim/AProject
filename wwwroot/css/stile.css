@@ -6,7 +6,7 @@
 @font-face {
     font-family: beats;
     /*src: url("\wwwroot\fonts\SFPro\TrueType\SFProDisplay-Thin.ttf");*/
-    src: url("/fonts/SFPro/TrueType/SFProDisplay-Thin.ttf");
+    src: url("/fonts/SFPro/TrueType/SFProDisplay-Regular.ttf");
  }
 
  .pluto
@@ -24,7 +24,7 @@
     margin-right: 20px;
     transition: border-width 0.5s;
     border-bottom: 0px solid orange;
-    font-size: 10px;
+    font-size: 15px;
  }
 
  .nav3 > li:hover > a:hover

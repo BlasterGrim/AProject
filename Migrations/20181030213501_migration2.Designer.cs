@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EFGetStarted.AspNetCore.NewDb.Migrations
 {
     [DbContext(typeof(BloggingContext))]
-    [Migration("20181029191641_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20181030213501_migration2")]
+    partial class migration2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -62,11 +62,11 @@ namespace EFGetStarted.AspNetCore.NewDb.Migrations
 
                     b.Property<string>("eMail");
 
-                    b.Property<int>("nCellulare");
+                    b.Property<string>("nCellulare");
 
-                    b.Property<int>("nFax");
+                    b.Property<string>("nFax");
 
-                    b.Property<int>("nTelefono");
+                    b.Property<string>("nTelefono");
 
                     b.HasKey("ContattoId");
 
@@ -128,11 +128,11 @@ namespace EFGetStarted.AspNetCore.NewDb.Migrations
                     b.Property<int>("SpedizioneId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Nome");
-
                     b.Property<decimal>("costiSpedizione");
 
                     b.Property<string>("descrizione");
+
+                    b.Property<string>("nome");
 
                     b.HasKey("SpedizioneId");
 
