@@ -4,25 +4,25 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Lista Contatti</h2>
+<h2>Elenco contatti</h2>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Crea nuovo contatto</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.nTelefono)
+                Numero telefono
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.nFax)
+                FAX
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.nCellulare)
+                Numero cellulare
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.eMail)
+                E-mail
             </th>
             <th></th>
         </tr>
@@ -43,9 +43,9 @@
                 @Html.DisplayFor(modelItem => item.eMail)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ContattoId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ContattoId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ContattoId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.ContattoId">MOdifica</a> |
+                <a asp-action="Details" asp-route-id="@item.ContattoId">Dettagli</a> |
+                <a asp-action="Delete" asp-route-id="@item.ContattoId">Elimina</a>
             </td>
         </tr>
 }

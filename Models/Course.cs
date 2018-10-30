@@ -72,9 +72,9 @@ namespace EFGetStarted.AspNetCore.NewDb.Models
     public class Contatto
     {
         public int ContattoId { get; set; }
-        public long nTelefono { get; set; }
-        public long nFax { get; set; }
-        public long nCellulare { get; set; }
+        public string nTelefono { get; set; }
+        public string nFax { get; set; }
+        public string nCellulare { get; set; }
         public string eMail { get; set; }
     }
 }

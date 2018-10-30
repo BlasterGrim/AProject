@@ -4,25 +4,25 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
+<h2>Elenco fatture</h2>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Crea nuova fattura</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.quantitaProdotto)
+                Quantità prodotto
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.iva)
+                IVA
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.sconto)
+                Sconto
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.totFattura)
+                Importo fattura
             </th>
             <th></th>
         </tr>
@@ -34,18 +34,18 @@
                 @Html.DisplayFor(modelItem => item.quantitaProdotto)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.iva)
+                @Html.DisplayFor(modelItem => item.iva) %
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.sconto)
+                @Html.DisplayFor(modelItem => item.sconto) %
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.totFattura)
+                @Html.DisplayFor(modelItem => item.totFattura) €
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.FatturaId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.FatturaId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.FatturaId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.FatturaId">Modifica</a> |
+                <a asp-action="Details" asp-route-id="@item.FatturaId">Dettagli</a> |
+                <a asp-action="Delete" asp-route-id="@item.FatturaId">Elimina</a>
             </td>
         </tr>
 }
