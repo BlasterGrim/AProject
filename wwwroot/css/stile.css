@@ -2,3 +2,42 @@
 {
     color: red;
 }
+
+@font-face {
+    font-family: beats;
+    /*src: url("\wwwroot\fonts\SFPro\TrueType\SFProDisplay-Thin.ttf");*/
+    src: url("/fonts/SFPro/TrueType/SFProDisplay-Thin.ttf");
+ }
+
+ .pluto
+ {
+     font-family: beats;
+ }
+
+ .nav3
+ {
+    text-align: center;
+ }
+
+ .nav3 > li
+ {
+    margin-right: 20px;
+    transition: border-width 0.5s;
+    border-bottom: 0px solid orange;
+    font-size: 10px;
+ }
+
+ .nav3 > li:hover > a:hover
+ {
+    background-color: rgb(187, 194, 214);
+    color: black;
+    border-width: 20px; 
+ }
+
+ @keyframes esempio {
+    0%   {border-bottom: 5px solid orange; border-width: 0px; top:0px;}
+    25%  {border-bottom: 5px solid orange; border-width: 10px; top:0px;}
+    50%  {border-bottom: 5px solid orange; border-width: 20px; top:0px;}
+    75%  {border-bottom: 5px solid orange; border-width: 10px; top:0px;}
+    100% {border-bottom: 5px solid orange; border-width: 0px; top:0px;}
+}
