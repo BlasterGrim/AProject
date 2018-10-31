@@ -33,12 +33,16 @@
                 <span asp-validation-for="sesso" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="IndirizzoId" class="control-label"></label>
+                <select asp-for="IndirizzoId" class ="form-control" asp-items="ViewBag.IndirizzoId"></select>
+            </div>
+            <div class="form-group">
                 <label asp-for="ContattoId" class="control-label"></label>
                 <select asp-for="ContattoId" class ="form-control" asp-items="ViewBag.ContattoId"></select>
             </div>
             <div class="form-group">
-                <label asp-for="SpedizioneId" class="control-label"></label>
-                <select asp-for="SpedizioneId" class ="form-control" asp-items="ViewBag.SpedizioneId"></select>
+                <label asp-for="TipoId" class="control-label"></label>
+                <select asp-for="TipoId" class ="form-control" asp-items="ViewBag.TipoId"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-default" />

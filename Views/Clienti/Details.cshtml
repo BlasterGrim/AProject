@@ -47,10 +47,16 @@
             @Html.DisplayFor(model => model.Contatto.nCellulare)
         </dd>
         <dt>
-            Tipi di spedizione
+            Indirizzo
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Spedizione.SpedizioneId)
+            @Html.DisplayFor(model => model.Indirizzo.IndirizzoId)
+        </dd>
+        <dt>
+            Tipo
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Tipo.descrizione)
         </dd>
     </dl>
 </div>

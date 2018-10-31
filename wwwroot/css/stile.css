@@ -1,15 +1,10 @@
-.pippo
-{
-    color: red;
-}
-
 @font-face {
     font-family: beats;
     /*src: url("\wwwroot\fonts\SFPro\TrueType\SFProDisplay-Thin.ttf");*/
-    src: url("/fonts/SFPro/TrueType/SFProDisplay-Regular.ttf");
+    src: url("/fonts/SFPro/TrueType/SFProText-Regular.ttf");
  }
 
- .pluto
+ .font
  {
      font-family: beats;
  }
@@ -21,17 +16,18 @@
 
  .nav3 > li
  {
-    margin-right: 20px;
-    transition: border-width 0.5s;
-    border-bottom: 0px solid orange;
-    font-size: 15px;
  }
 
- .nav3 > li:hover > a:hover
+ .navbar-nav > li > a
  {
-    background-color: rgb(187, 194, 214);
-    color: black;
-    border-width: 20px; 
+    color: white !important;
+    transition: opacity 0.5s;
+ }
+
+ .navbar-nav > li > a:hover
+ {
+    opacity: .65;
+    
  }
 
  @keyframes esempio {
@@ -41,3 +37,4 @@
     75%  {border-bottom: 5px solid orange; border-width: 10px; top:0px;}
     100% {border-bottom: 5px solid orange; border-width: 0px; top:0px;}
 }
+

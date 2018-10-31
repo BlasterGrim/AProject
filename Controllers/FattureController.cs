@@ -53,7 +53,7 @@ namespace EFGetStarted.AspNetCore.NewDb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("FatturaId,quantitaProdotto,iva,sconto,totFattura")] Fattura fattura)
+        public async Task<IActionResult> Create([Bind("FatturaId,quantitaProdotto,iva,sconto,totFattura,ClienteId")] Fattura fattura)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace EFGetStarted.AspNetCore.NewDb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("FatturaId,quantitaProdotto,iva,sconto,totFattura")] Fattura fattura)
+        public async Task<IActionResult> Edit(int id, [Bind("FatturaId,quantitaProdotto,iva,sconto,totFattura,ClienteId")] Fattura fattura)
         {
             if (id != fattura.FatturaId)
             {

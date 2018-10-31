@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EFGetStarted.AspNetCore.NewDb.Migrations
 {
     [DbContext(typeof(BloggingContext))]
-    [Migration("20181030195423_migration1")]
-    partial class migration1
+    [Migration("20181031152753_migrations")]
+    partial class migrations
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -17,16 +17,28 @@ namespace EFGetStarted.AspNetCore.NewDb.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.1.4-rtm-31024");
 
-            modelBuilder.Entity("EFGetStarted.AspNetCore.NewDb.Models.Blog", b =>
+            modelBuilder.Entity("EFGetStarted.AspNetCore.NewDb.Models.Acquisti", b =>
                 {
-                    b.Property<int>("BlogId")
+                    b.Property<int>("AcquistiID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Url");
+                    b.Property<int>("ClienteId");
 
-                    b.HasKey("BlogId");
+                    b.Property<string>("ClienteId1");
 
-                    b.ToTable("Blogs");
+                    b.Property<int>("FatturaId");
+
+                    b.Property<int>("SpedizioneId");
+
+                    b.HasKey("AcquistiID");
+
+                    b.HasIndex("ClienteId1");
+
+                    b.HasIndex("FatturaId");
+
+                    b.HasIndex("SpedizioneId");
+
+                    b.ToTable("Acquisti");
                 });
 
             modelBuilder.Entity("EFGetStarted.AspNetCore.NewDb.Models.Cliente", b =>
@@ -36,13 +48,18 @@ namespace EFGetStarted.AspNetCore.NewDb.Migrations
 
                     b.Property<int>("ContattoId");
 
-                    b.Property<int>("SpedizioneId");
+                    b.Property<int>("IndirizzoId");
 
-                    b.Property<string>("cognome");
+                    b.Property<int>("TipoId");
 
-                    b.Property<string>("dNascita");
+                    b.Property<string>("cognome")
+                        .IsRequired();
 
-                    b.Property<string>("nome");
+                    b.Property<string>("dNascita")
+                        .IsRequired();
+
+                    b.Property<string>("nome")
+                        .IsRequired();
 
                     b.Property<char>("sesso");
 
@@ -50,7 +67,9 @@ namespace EFGetStarted.AspNetCore.NewDb.Migrations
 
                     b.HasIndex("ContattoId");
 
-                    b.HasIndex("SpedizioneId");
+                    b.HasIndex("IndirizzoId");
+
+                    b.HasIndex("TipoId");
 
                     b.ToTable("Cliente");
                 });
@@ -78,6 +97,10 @@ namespace EFGetStarted.AspNetCore.NewDb.Migrations
                     b.Property<int>("FatturaId")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int>("ClienteId");
+
+                    b.Property<string>("ClienteId1");
+
                     b.Property<int>("iva");
 
                     b.Property<int>("quantitaProdotto");
@@ -87,6 +110,8 @@ namespace EFGetStarted.AspNetCore.NewDb.Migrations
                     b.Property<decimal>("totFattura");
 
                     b.HasKey("FatturaId");
+
+                    b.HasIndex("ClienteId1");
 
                     b.ToTable("Fattura");
                 });
@@ -105,24 +130,6 @@ namespace EFGetStarted.AspNetCore.NewDb.Migrations
                     b.ToTable("Indirizzo");
                 });
 
-            modelBuilder.Entity("EFGetStarted.AspNetCore.NewDb.Models.Post", b =>
-                {
-                    b.Property<int>("PostId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("BlogId");
-
-                    b.Property<string>("Content");
-
-                    b.Property<string>("Title");
-
-                    b.HasKey("PostId");
-
-                    b.HasIndex("BlogId");
-
-                    b.ToTable("Posts");
-                });
-
             modelBuilder.Entity("EFGetStarted.AspNetCore.NewDb.Models.Spedizione", b =>
                 {
                     b.Property<int>("SpedizioneId")
@@ -139,11 +146,29 @@ namespace EFGetStarted.AspNetCore.NewDb.Migrations
                     b.ToTable("Spedizione");
                 });
 
-            modelBuilder.Entity("EFGetStarted.AspNetCore.NewDb.Models.Cliente", b =>
+            modelBuilder.Entity("EFGetStarted.AspNetCore.NewDb.Models.Tipo", b =>
                 {
-                    b.HasOne("EFGetStarted.AspNetCore.NewDb.Models.Contatto", "Contatto")
+                    b.Property<int>("TipoId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("descrizione");
+
+                    b.Property<int>("pIVA");
+
+                    b.HasKey("TipoId");
+
+                    b.ToTable("Tipo");
+                });
+
+            modelBuilder.Entity("EFGetStarted.AspNetCore.NewDb.Models.Acquisti", b =>
+                {
+                    b.HasOne("EFGetStarted.AspNetCore.NewDb.Models.Cliente", "Cliente")
                         .WithMany()
-                        .HasForeignKey("ContattoId")
+                        .HasForeignKey("ClienteId1");
+
+                    b.HasOne("EFGetStarted.AspNetCore.NewDb.Models.Fattura", "Fattura")
+                        .WithMany()
+                        .HasForeignKey("FatturaId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("EFGetStarted.AspNetCore.NewDb.Models.Spedizione", "Spedizione")
@@ -152,12 +177,29 @@ namespace EFGetStarted.AspNetCore.NewDb.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("EFGetStarted.AspNetCore.NewDb.Models.Post", b =>
+            modelBuilder.Entity("EFGetStarted.AspNetCore.NewDb.Models.Cliente", b =>
                 {
-                    b.HasOne("EFGetStarted.AspNetCore.NewDb.Models.Blog", "Blog")
-                        .WithMany("Posts")
-                        .HasForeignKey("BlogId")
+                    b.HasOne("EFGetStarted.AspNetCore.NewDb.Models.Contatto", "Contatto")
+                        .WithMany()
+                        .HasForeignKey("ContattoId")
                         .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("EFGetStarted.AspNetCore.NewDb.Models.Indirizzo", "Indirizzo")
+                        .WithMany()
+                        .HasForeignKey("IndirizzoId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("EFGetStarted.AspNetCore.NewDb.Models.Tipo", "Tipo")
+                        .WithMany()
+                        .HasForeignKey("TipoId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("EFGetStarted.AspNetCore.NewDb.Models.Fattura", b =>
+                {
+                    b.HasOne("EFGetStarted.AspNetCore.NewDb.Models.Cliente", "Cliente")
+                        .WithMany()
+                        .HasForeignKey("ClienteId1");
                 });
 #pragma warning restore 612, 618
         }

@@ -38,12 +38,14 @@
                 Sesso
             </th>
             <th>
-                Numero telefono
+                Contatti
             </th>
             <th>
-                Tipo spedizione
+                Indirizzo
             </th>
-            <th></th>
+            <th>
+                Tipo utente
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -65,7 +67,10 @@
                 @Html.DisplayFor(modelItem => item.Contatto.nTelefono)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Spedizione.nome)
+                @Html.DisplayFor(modelItem => item.Indirizzo.IndirizzoId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipo.TipoId)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ClienteId">Modifica</a>

@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using EFGetStarted.AspNetCore.NewDb.Models;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EFGetStarted.AspNetCore.NewDb.Models
 {
@@ -10,16 +12,19 @@ namespace EFGetStarted.AspNetCore.NewDb.Models
             : base(options)
         { }
 
-        public DbSet<Blog> Blogs { get; set; }
-        public DbSet<Post> Posts { get; set; }
+        /*public DbSet<Blog> Blogs { get; set; }
+        public DbSet<Post> Posts { get; set; }*/
         public DbSet<Cliente> Cliente { get; set; }
+        [StringLength(50)]
         public DbSet<Fattura> Fattura { get; set; }
         public DbSet<Spedizione> Spedizione { get; set; }
         public DbSet<Indirizzo> Indirizzo { get; set; }
         public DbSet<EFGetStarted.AspNetCore.NewDb.Models.Contatto> Contatto { get; set; }
+        public DbSet<Tipo> Tipo { get; set; }
+        public DbSet<Acquisti> Acquisti { get; set; }
     }
 
-    public class Blog
+    /*public class Blog
     {
         public int BlogId { get; set; }
         public string Url { get; set; }
@@ -35,18 +40,25 @@ namespace EFGetStarted.AspNetCore.NewDb.Models
 
         public int BlogId { get; set; }
         public Blog Blog { get; set; }
-    }
+    }*/
     public class Cliente
     {
         public string ClienteId { get; set; }
+        [Required]
         public string nome { get; set; }
+        [Required]
         public string cognome { get; set; }
+        [Required]
         public string dNascita { get; set; }
+        [Required]
         public char sesso { get; set; }
         public int ContattoId { get; set; }
         public Contatto Contatto { get; set; }
-        public int SpedizioneId { get; set; }
-        public Spedizione Spedizione { get; set; }
+        public int IndirizzoId { get; set; }
+        public Indirizzo Indirizzo { get; set; }
+        public int TipoId { get; set; }
+        public Tipo Tipo { get; set; }
+
     }
     public class Fattura
     {
@@ -55,6 +67,8 @@ namespace EFGetStarted.AspNetCore.NewDb.Models
         public int iva { get; set; }
         public int sconto { get; set; }
         public decimal totFattura { get; set; }
+        public int ClienteId { get; set; }
+        public Cliente Cliente { get; set; }
     }
     public class Spedizione
     {
@@ -76,5 +90,21 @@ namespace EFGetStarted.AspNetCore.NewDb.Models
         public string nFax { get; set; }
         public string nCellulare { get; set; }
         public string eMail { get; set; }
+    }
+    public class Tipo
+    {
+        public int TipoId { get; set; }
+        public string descrizione { get; set; }
+        public int pIVA { get; set; }
+    }
+    public class Acquisti
+    {
+        public int AcquistiID { get; set; }
+        public int ClienteId { get; set; }
+        public Cliente Cliente { get; set; }
+        public int SpedizioneId { get; set; }
+        public Spedizione Spedizione { get; set; }
+        public int FatturaId { get; set; }
+        public Fattura Fattura { get; set; }
     }
 }

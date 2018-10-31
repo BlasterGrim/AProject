@@ -1,0 +1,55 @@
+@model IEnumerable<EFGetStarted.AspNetCore.NewDb.Models.Acquisti>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ClienteId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Spedizione)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fattura)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClienteId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Spedizione.SpedizioneId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fattura.FatturaId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.AcquistiID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.AcquistiID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.AcquistiID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>
