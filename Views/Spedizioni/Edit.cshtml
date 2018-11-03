@@ -4,7 +4,7 @@
     ViewData["Title"] = "Edit";
 }
 
-<h2>Edit</h2>
+<h2>Modifica</h2>
 
 <h4>Spedizione</h4>
 <hr />
@@ -14,29 +14,29 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="SpedizioneId" />
             <div class="form-group">
-                <label asp-for="nome" class="control-label"></label>
+                <label asp-for="nome" class="control-label">Nome</label>
                 <input asp-for="nome" class="form-control" />
                 <span asp-validation-for="nome" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="descrizione" class="control-label"></label>
+                <label asp-for="descrizione" class="control-label">Descrizione</label>
                 <input asp-for="descrizione" class="form-control" />
                 <span asp-validation-for="descrizione" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="costiSpedizione" class="control-label"></label>
+                <label asp-for="costiSpedizione" class="control-label">Costi spedizione</label>
                 <input asp-for="costiSpedizione" class="form-control" />
                 <span asp-validation-for="costiSpedizione" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Salva" class="btn btn-default" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Torna alla lista ></a>
 </div>
 
 @section Scripts {

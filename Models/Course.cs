@@ -15,7 +15,6 @@ namespace EFGetStarted.AspNetCore.NewDb.Models
         /*public DbSet<Blog> Blogs { get; set; }
         public DbSet<Post> Posts { get; set; }*/
         public DbSet<Cliente> Cliente { get; set; }
-        [StringLength(50)]
         public DbSet<Fattura> Fattura { get; set; }
         public DbSet<Spedizione> Spedizione { get; set; }
         public DbSet<Indirizzo> Indirizzo { get; set; }
@@ -43,7 +42,7 @@ namespace EFGetStarted.AspNetCore.NewDb.Models
     }*/
     public class Cliente
     {
-        public string ClienteId { get; set; }
+        public int ClienteId { get; set; }
         [Required]
         public string nome { get; set; }
         [Required]

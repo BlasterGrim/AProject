@@ -4,36 +4,37 @@
     ViewData["Title"] = "Delete";
 }
 
-<h2>Delete</h2>
+<h2>Elimina</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Sei sicuro di voler rimuovere questa spedizione?</h3>
 <div>
-    <h4>Spedizione</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.nome)
+            Nome
         </dt>
         <dd>
             @Html.DisplayFor(model => model.nome)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.descrizione)
+            Descrizione
         </dt>
         <dd>
             @Html.DisplayFor(model => model.descrizione)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.costiSpedizione)
+            Costi spedizione
         </dt>
         <dd>
             @Html.DisplayFor(model => model.costiSpedizione)
         </dd>
     </dl>
     
-    <form asp-action="Delete">
+    <form asp-action="Delete" class="form-group">
         <input type="hidden" asp-for="SpedizioneId" />
-        <input type="submit" value="Delete" class="btn btn-default" /> |
-        <a asp-action="Index">Back to List</a>
+        <input type="submit" value="Elimina" class="btn btn-default" />
     </form>
+</div>
+<div>
+    <a asp-action="Index">Torna alla lista ></a>
 </div>

@@ -4,25 +4,19 @@
     ViewData["Title"] = "Index";
 }
 
-<!DOCTYPE html>
+<h2>Tipo</h2>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Crea nuovo tipo di utente ></a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.descrizione)
+                Descrizione
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.pIVA)
+                Partita IVA
             </th>
             <th></th>
         </tr>
@@ -37,13 +31,11 @@
                 @Html.DisplayFor(modelItem => item.pIVA)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.TipoId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.TipoId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.TipoId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.TipoId">Modifica ></a>
+                <a asp-action="Details" asp-route-id="@item.TipoId">Dettagli ></a>
+                <a asp-action="Delete" asp-route-id="@item.TipoId">Elimina ></a>
             </td>
         </tr>
 }
     </tbody>
 </table>
-</body>
-</html>

@@ -4,7 +4,7 @@
     ViewData["Title"] = "Create";
 }
 
-<h2>Create</h2>
+<h2>Nuova</h2>
 
 <h4>Fattura</h4>
 <hr />
@@ -13,39 +13,38 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="quantitaProdotto" class="control-label"></label>
+                <label asp-for="quantitaProdotto" class="control-label">Quantità prodotto</label>
                 <input asp-for="quantitaProdotto" class="form-control" />
                 <span asp-validation-for="quantitaProdotto" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="iva" class="control-label"></label>
+                <label asp-for="iva" class="control-label">IVA</label>
                 <input asp-for="iva" class="form-control" />
                 <span asp-validation-for="iva" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="sconto" class="control-label"></label>
+                <label asp-for="sconto" class="control-label">Sconto</label>
                 <input asp-for="sconto" class="form-control" />
                 <span asp-validation-for="sconto" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="totFattura" class="control-label"></label>
+                <label asp-for="totFattura" class="control-label">Importo totale</label>
                 <input asp-for="totFattura" class="form-control" />
                 <span asp-validation-for="totFattura" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ClienteId" class="control-label"></label>
-                <input asp-for="ClienteId" class="form-control" />
-                <span asp-validation-for="ClienteId" class="text-danger"></span>
+                <label asp-for="ClienteId" class="control-label">Emittente</label>
+                <select asp-for="ClienteId" class ="form-control" asp-items="ViewBag.ClienteId"></select>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Invia" class="btn btn-default" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Torna alla lista ></a>
 </div>
 
 @section Scripts {

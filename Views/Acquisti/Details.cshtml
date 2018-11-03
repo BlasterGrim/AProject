@@ -1,27 +1,20 @@
 @model EFGetStarted.AspNetCore.NewDb.Models.Acquisti
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Details";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
-</head>
-<body>
+<h2>Details</h2>
 
 <div>
     <h4>Acquisti</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.ClienteId)
+            @Html.DisplayNameFor(model => model.Cliente)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.ClienteId)
+            @Html.DisplayFor(model => model.Cliente.cognome)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Spedizione)
@@ -41,5 +34,3 @@
     <a asp-action="Edit" asp-route-id="@Model.AcquistiID">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
-</body>
-</html>

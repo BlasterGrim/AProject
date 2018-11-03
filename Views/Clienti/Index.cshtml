@@ -4,23 +4,30 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Elenco clienti</h2>
+<h2>Elenco utenti</h2>
 
 <!--ricerca campo-->
 <form asp-controller="Clienti" asp-action="Index">
-    <p>
-        Ricerca per nome <input type="text" name="SearchString">
-        Ricerca per cognome <input type="text" name="SearchString1">
-        Ricerca per data di nascita <input type="text" name="SearchString2">
-        Ricerca per sesso <br>
-        Maschio <input type="radio" name="SearchString3" value="M">
-        Femmina <input type="radio" name="SearchString3" value="F">
-        <input type="submit" value="Filtra" />
+    <p class="itext">
+        <input type="text" name="SearchString" placeholder="Ricerca nome">
+        <input type="text" name="SearchString1" placeholder="Ricerca cognome">
+        <input type="text" name="SearchString2" placeholder="Ricerca data di nascita">
+        <label class="rad">
+        <input type="radio" name="SearchString3" value="M"> <i></i>Maschio
+        </label>
+        <label class="rad">
+        <input type="radio" name="SearchString3" value="F"> <i></i>Femmina
+        </label>
+        <input type="checkbox" name="SearchString4" value="cliente">Cliente
+        <input type="checkbox" name="SearchString5" value="fornitore">Fornitore
+        <button type="submit" class="button">
+        <img src="/images/finder.svg" width="30px" height="30px" alt="submit" />
+        </button>
     </p>
 </form>
 
 <p>
-    <a asp-action="Create">Crea nuovo cliente</a>
+    <a asp-action="Create">Crea nuovo utente ></a>
 </p>
 <table class="table">
     <thead>
@@ -38,14 +45,15 @@
                 Sesso
             </th>
             <th>
-                Contatti
+                ID Contatti
             </th>
             <th>
-                Indirizzo
+                ID Indirizzi
             </th>
             <th>
                 Tipo utente
             </th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -64,7 +72,7 @@
                 @Html.DisplayFor(modelItem => item.sesso)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Contatto.nTelefono)
+                @Html.DisplayFor(modelItem => item.Contatto.ContattoId)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Indirizzo.IndirizzoId)
@@ -73,9 +81,9 @@
                 @Html.DisplayFor(modelItem => item.Tipo.TipoId)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ClienteId">Modifica</a>
-                <a asp-action="Details" asp-route-id="@item.ClienteId">Dettagli</a>
-                <a asp-action="Delete" asp-route-id="@item.ClienteId">Elimina</a>
+                <a asp-action="Edit" asp-route-id="@item.ClienteId">Modifica ></a>
+                <a asp-action="Details" asp-route-id="@item.ClienteId">Dettagli ></a>
+                <a asp-action="Delete" asp-route-id="@item.ClienteId">Elimina ></a>
             </td>
         </tr>
 }

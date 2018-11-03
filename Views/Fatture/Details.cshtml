@@ -4,45 +4,52 @@
     ViewData["Title"] = "Details";
 }
 
-<h2>Details</h2>
+<h2>Dettagli</h2>
 
 <div>
     <h4>Fattura</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.quantitaProdotto)
+            Fattura n.
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FatturaId)
+        </dd>
+        <dt>
+            Quantità prodotto
         </dt>
         <dd>
             @Html.DisplayFor(model => model.quantitaProdotto)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.iva)
+            IVA
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.iva)
+            @Html.DisplayFor(model => model.iva) %
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.sconto)
+            Sconto
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.sconto)
+            @Html.DisplayFor(model => model.sconto) %
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.totFattura)
+            Importo totale
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.totFattura)
+            @Html.DisplayFor(model => model.totFattura) €
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.ClienteId)
+            Emittente
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.ClienteId)
+            @Html.DisplayFor(model => model.Cliente.cognome)
+            @Html.DisplayFor(model => model.Cliente.nome)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.FatturaId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.FatturaId">Modifica ></a> |
+    <a asp-action="Index">Torna alla lista ></a>
 </div>

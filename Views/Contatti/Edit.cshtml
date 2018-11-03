@@ -4,7 +4,7 @@
     ViewData["Title"] = "Edit";
 }
 
-<h2>Edit</h2>
+<h2>Modifica</h2>
 
 <h4>Contatto</h4>
 <hr />
@@ -14,34 +14,34 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ContattoId" />
             <div class="form-group">
-                <label asp-for="nTelefono" class="control-label"></label>
+                <label asp-for="nTelefono" class="control-label">Telefono</label>
                 <input asp-for="nTelefono" class="form-control" />
                 <span asp-validation-for="nTelefono" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="nFax" class="control-label"></label>
+                <label asp-for="nFax" class="control-label">FAX</label>
                 <input asp-for="nFax" class="form-control" />
                 <span asp-validation-for="nFax" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="nCellulare" class="control-label"></label>
+                <label asp-for="nCellulare" class="control-label">Cellulare</label>
                 <input asp-for="nCellulare" class="form-control" />
                 <span asp-validation-for="nCellulare" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="eMail" class="control-label"></label>
-                <input asp-for="eMail" class="form-control" />
+                <label asp-for="eMail" class="control-label">E-mail</label>
+                <input type="email" asp-for="eMail" class="form-control" />
                 <span asp-validation-for="eMail" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Salva" class="btn btn-default" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Torna alla lista ></a>
 </div>
 
 @section Scripts {

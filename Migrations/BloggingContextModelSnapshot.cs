@@ -22,15 +22,13 @@ namespace EFGetStarted.AspNetCore.NewDb.Migrations
 
                     b.Property<int>("ClienteId");
 
-                    b.Property<string>("ClienteId1");
-
                     b.Property<int>("FatturaId");
 
                     b.Property<int>("SpedizioneId");
 
                     b.HasKey("AcquistiID");
 
-                    b.HasIndex("ClienteId1");
+                    b.HasIndex("ClienteId");
 
                     b.HasIndex("FatturaId");
 
@@ -41,7 +39,7 @@ namespace EFGetStarted.AspNetCore.NewDb.Migrations
 
             modelBuilder.Entity("EFGetStarted.AspNetCore.NewDb.Models.Cliente", b =>
                 {
-                    b.Property<string>("ClienteId")
+                    b.Property<int>("ClienteId")
                         .ValueGeneratedOnAdd();
 
                     b.Property<int>("ContattoId");
@@ -97,8 +95,6 @@ namespace EFGetStarted.AspNetCore.NewDb.Migrations
 
                     b.Property<int>("ClienteId");
 
-                    b.Property<string>("ClienteId1");
-
                     b.Property<int>("iva");
 
                     b.Property<int>("quantitaProdotto");
@@ -109,7 +105,7 @@ namespace EFGetStarted.AspNetCore.NewDb.Migrations
 
                     b.HasKey("FatturaId");
 
-                    b.HasIndex("ClienteId1");
+                    b.HasIndex("ClienteId");
 
                     b.ToTable("Fattura");
                 });
@@ -162,7 +158,8 @@ namespace EFGetStarted.AspNetCore.NewDb.Migrations
                 {
                     b.HasOne("EFGetStarted.AspNetCore.NewDb.Models.Cliente", "Cliente")
                         .WithMany()
-                        .HasForeignKey("ClienteId1");
+                        .HasForeignKey("ClienteId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("EFGetStarted.AspNetCore.NewDb.Models.Fattura", "Fattura")
                         .WithMany()
@@ -197,7 +194,8 @@ namespace EFGetStarted.AspNetCore.NewDb.Migrations
                 {
                     b.HasOne("EFGetStarted.AspNetCore.NewDb.Models.Cliente", "Cliente")
                         .WithMany()
-                        .HasForeignKey("ClienteId1");
+                        .HasForeignKey("ClienteId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

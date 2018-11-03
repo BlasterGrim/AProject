@@ -7,7 +7,7 @@
 <h2>Spedizioni</h2>
 
 <p>
-    <a asp-action="Create">Crea nuovo tipo di spedizione</a>
+    <a asp-action="Create">Crea nuovo tipo di spedizione ></a>
 </p>
 <table class="table">
     <thead>
@@ -34,12 +34,12 @@
                 @Html.DisplayFor(modelItem => item.descrizione)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.costiSpedizione)
+                @Html.DisplayFor(modelItem => item.costiSpedizione) €
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.SpedizioneId">Modifica</a> |
-                <a asp-action="Details" asp-route-id="@item.SpedizioneId">Dettagli</a> |
-                <a asp-action="Delete" asp-route-id="@item.SpedizioneId">Elimina</a>
+                <a asp-action="Edit" asp-route-id="@item.SpedizioneId">Modifica ></a>
+                <a asp-action="Details" asp-route-id="@item.SpedizioneId">Dettagli ></a>
+                <a asp-action="Delete" asp-route-id="@item.SpedizioneId">Elimina ></a>
             </td>
         </tr>
 }

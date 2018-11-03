@@ -1,17 +1,10 @@
 @model EFGetStarted.AspNetCore.NewDb.Models.Tipo
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Create";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Create</title>
-</head>
-<body>
+<h2>Nuovo</h2>
 
 <h4>Tipo</h4>
 <hr />
@@ -20,28 +13,26 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="descrizione" class="control-label"></label>
+                <label asp-for="descrizione" class="control-label">Descrizione</label>
                 <input asp-for="descrizione" class="form-control" />
                 <span asp-validation-for="descrizione" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="pIVA" class="control-label"></label>
+                <label asp-for="pIVA" class="control-label">Partita IVA</label>
                 <input asp-for="pIVA" class="form-control" />
                 <span asp-validation-for="pIVA" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Invia" class="btn btn-default" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Torna alla lista ></a>
 </div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
-</body>
-</html>

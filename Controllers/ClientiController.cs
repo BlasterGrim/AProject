@@ -25,7 +25,7 @@ namespace EFGetStarted.AspNetCore.NewDb.Controllers
             return View(await bloggingContext.ToListAsync());
         }*/
 
-        public async Task<IActionResult> Index(string SearchString, string SearchString1, string SearchString2, char SearchString3)
+        public async Task<IActionResult> Index(string SearchString, string SearchString1, string SearchString2, char SearchString3, string SearchString4, string SearchString5)
         {
             var name = from c in _context.Cliente.Include(c => c.Contatto).Include(i => i.Indirizzo).Include(t => t.Tipo)
                        select c;
@@ -46,12 +46,20 @@ namespace EFGetStarted.AspNetCore.NewDb.Controllers
             {
                 name = name.Where(s => s.sesso.Equals(SearchString3));
             }
+               if (!String.IsNullOrEmpty(SearchString4) & String.IsNullOrEmpty(SearchString5))
+            {
+                name = name.Where(s => s.Tipo.descrizione.Contains(SearchString4));
+            }
+               if (!String.IsNullOrEmpty(SearchString5) & String.IsNullOrEmpty(SearchString4))
+            {
+                name = name.Where(s => s.Tipo.descrizione.Contains(SearchString5));
+            }
 
             return View(await name.ToListAsync());
         }
 
         // GET: Clienti/Details/5
-        public async Task<IActionResult> Details(string id)
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
             {
@@ -76,7 +84,7 @@ namespace EFGetStarted.AspNetCore.NewDb.Controllers
         {
             ViewData["ContattoId"] = new SelectList(_context.Contatto, "ContattoId", "ContattoId");
             ViewData["IndirizzoId"] = new SelectList(_context.Indirizzo, "IndirizzoId", "IndirizzoId");
-            ViewData["TipoId"] = new SelectList(_context.Tipo, "TipoId", "TipoId");
+            ViewData["TipoId"] = new SelectList(_context.Tipo, "descrizione", "descrizione");
             return View();
         }
 
@@ -101,7 +109,7 @@ namespace EFGetStarted.AspNetCore.NewDb.Controllers
         }
 
         // GET: Clienti/Edit/5
-        public async Task<IActionResult> Edit(string id)
+        public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
             {
@@ -125,7 +133,7 @@ namespace EFGetStarted.AspNetCore.NewDb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("ClienteId,nome,cognome,dNascita,sesso,ContattoId,IndirizzoId,TipoId")] Cliente cliente)
+        public async Task<IActionResult> Edit(int id, [Bind("ClienteId,nome,cognome,dNascita,sesso,ContattoId,IndirizzoId,TipoId")] Cliente cliente)
         {
             if (id != cliente.ClienteId)
             {
@@ -159,7 +167,7 @@ namespace EFGetStarted.AspNetCore.NewDb.Controllers
         }
 
         // GET: Clienti/Delete/5
-        public async Task<IActionResult> Delete(string id)
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
             {
@@ -190,7 +198,7 @@ namespace EFGetStarted.AspNetCore.NewDb.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ClienteExists(string id)
+        private bool ClienteExists(int id)
         {
             return _context.Cliente.Any(e => e.ClienteId == id);
         }

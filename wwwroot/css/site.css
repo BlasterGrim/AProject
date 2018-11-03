@@ -1,7 +1,7 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
 for details on configuring this project to bundle and minify static web assets. */
 body {
-    background-color: rgb(155, 155, 155);
+    background-color: rgb(255, 255, 255);
     padding-top: 50px;
     padding-bottom: 20px;
 }

@@ -21,7 +21,7 @@ namespace EFGetStarted.AspNetCore.NewDb.Controllers
         // GET: Acquisti
         public async Task<IActionResult> Index()
         {
-            var bloggingContext = _context.Acquisti.Include(a => a.Fattura).Include(a => a.Spedizione);
+            var bloggingContext = _context.Acquisti.Include(a => a.Cliente).Include(a => a.Fattura).Include(a => a.Spedizione);
             return View(await bloggingContext.ToListAsync());
         }
 
@@ -34,6 +34,7 @@ namespace EFGetStarted.AspNetCore.NewDb.Controllers
             }
 
             var acquisti = await _context.Acquisti
+                .Include(a => a.Cliente)
                 .Include(a => a.Fattura)
                 .Include(a => a.Spedizione)
                 .FirstOrDefaultAsync(m => m.AcquistiID == id);
@@ -48,6 +49,7 @@ namespace EFGetStarted.AspNetCore.NewDb.Controllers
         // GET: Acquisti/Create
         public IActionResult Create()
         {
+            ViewData["ClienteId"] = new SelectList(_context.Cliente, "ClienteId", "cognome");
             ViewData["FatturaId"] = new SelectList(_context.Fattura, "FatturaId", "FatturaId");
             ViewData["SpedizioneId"] = new SelectList(_context.Spedizione, "SpedizioneId", "SpedizioneId");
             return View();
@@ -66,6 +68,7 @@ namespace EFGetStarted.AspNetCore.NewDb.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ClienteId"] = new SelectList(_context.Cliente, "ClienteId", "cognome", acquisti.ClienteId);
             ViewData["FatturaId"] = new SelectList(_context.Fattura, "FatturaId", "FatturaId", acquisti.FatturaId);
             ViewData["SpedizioneId"] = new SelectList(_context.Spedizione, "SpedizioneId", "SpedizioneId", acquisti.SpedizioneId);
             return View(acquisti);
@@ -84,6 +87,7 @@ namespace EFGetStarted.AspNetCore.NewDb.Controllers
             {
                 return NotFound();
             }
+            ViewData["ClienteId"] = new SelectList(_context.Cliente, "ClienteId", "cognome", acquisti.ClienteId);
             ViewData["FatturaId"] = new SelectList(_context.Fattura, "FatturaId", "FatturaId", acquisti.FatturaId);
             ViewData["SpedizioneId"] = new SelectList(_context.Spedizione, "SpedizioneId", "SpedizioneId", acquisti.SpedizioneId);
             return View(acquisti);
@@ -121,6 +125,7 @@ namespace EFGetStarted.AspNetCore.NewDb.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ClienteId"] = new SelectList(_context.Cliente, "ClienteId", "cognome", acquisti.ClienteId);
             ViewData["FatturaId"] = new SelectList(_context.Fattura, "FatturaId", "FatturaId", acquisti.FatturaId);
             ViewData["SpedizioneId"] = new SelectList(_context.Spedizione, "SpedizioneId", "SpedizioneId", acquisti.SpedizioneId);
             return View(acquisti);
@@ -135,6 +140,7 @@ namespace EFGetStarted.AspNetCore.NewDb.Controllers
             }
 
             var acquisti = await _context.Acquisti
+                .Include(a => a.Cliente)
                 .Include(a => a.Fattura)
                 .Include(a => a.Spedizione)
                 .FirstOrDefaultAsync(m => m.AcquistiID == id);

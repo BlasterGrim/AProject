@@ -21,7 +21,8 @@ namespace EFGetStarted.AspNetCore.NewDb.Controllers
         // GET: Fatture
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Fattura.ToListAsync());
+            var bloggingContext = _context.Fattura.Include(f => f.Cliente);
+            return View(await bloggingContext.ToListAsync());
         }
 
         // GET: Fatture/Details/5
@@ -33,6 +34,7 @@ namespace EFGetStarted.AspNetCore.NewDb.Controllers
             }
 
             var fattura = await _context.Fattura
+                .Include(f => f.Cliente)
                 .FirstOrDefaultAsync(m => m.FatturaId == id);
             if (fattura == null)
             {
@@ -45,6 +47,7 @@ namespace EFGetStarted.AspNetCore.NewDb.Controllers
         // GET: Fatture/Create
         public IActionResult Create()
         {
+            ViewData["ClienteId"] = new SelectList(_context.Cliente, "ClienteId", "cognome");
             return View();
         }
 
@@ -61,6 +64,7 @@ namespace EFGetStarted.AspNetCore.NewDb.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ClienteId"] = new SelectList(_context.Cliente, "ClienteId", "cognome", fattura.ClienteId);
             return View(fattura);
         }
 
@@ -77,6 +81,7 @@ namespace EFGetStarted.AspNetCore.NewDb.Controllers
             {
                 return NotFound();
             }
+            ViewData["ClienteId"] = new SelectList(_context.Cliente, "ClienteId", "cognome", fattura.ClienteId);
             return View(fattura);
         }
 
@@ -112,6 +117,7 @@ namespace EFGetStarted.AspNetCore.NewDb.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ClienteId"] = new SelectList(_context.Cliente, "ClienteId", "cognome", fattura.ClienteId);
             return View(fattura);
         }
 
@@ -124,6 +130,7 @@ namespace EFGetStarted.AspNetCore.NewDb.Controllers
             }
 
             var fattura = await _context.Fattura
+                .Include(f => f.Cliente)
                 .FirstOrDefaultAsync(m => m.FatturaId == id);
             if (fattura == null)
             {

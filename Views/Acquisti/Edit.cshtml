@@ -1,17 +1,10 @@
 @model EFGetStarted.AspNetCore.NewDb.Models.Acquisti
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Edit";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Edit</title>
-</head>
-<body>
+<h2>Edit</h2>
 
 <h4>Acquisti</h4>
 <hr />
@@ -22,7 +15,7 @@
             <input type="hidden" asp-for="AcquistiID" />
             <div class="form-group">
                 <label asp-for="ClienteId" class="control-label"></label>
-                <input asp-for="ClienteId" class="form-control" />
+                <select asp-for="ClienteId" class="form-control" asp-items="ViewBag.ClienteId"></select>
                 <span asp-validation-for="ClienteId" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -49,5 +42,3 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
-</body>
-</html>

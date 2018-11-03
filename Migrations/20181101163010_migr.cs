@@ -2,7 +2,7 @@
 
 namespace EFGetStarted.AspNetCore.NewDb.Migrations
 {
-    public partial class migrations : Migration
+    public partial class migr : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -69,7 +69,8 @@ namespace EFGetStarted.AspNetCore.NewDb.Migrations
                 name: "Cliente",
                 columns: table => new
                 {
-                    ClienteId = table.Column<string>(nullable: false),
+                    ClienteId = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
                     nome = table.Column<string>(nullable: false),
                     cognome = table.Column<string>(nullable: false),
                     dNascita = table.Column<string>(nullable: false),
@@ -111,18 +112,17 @@ namespace EFGetStarted.AspNetCore.NewDb.Migrations
                     iva = table.Column<int>(nullable: false),
                     sconto = table.Column<int>(nullable: false),
                     totFattura = table.Column<decimal>(nullable: false),
-                    ClienteId = table.Column<int>(nullable: false),
-                    ClienteId1 = table.Column<string>(nullable: true)
+                    ClienteId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Fattura", x => x.FatturaId);
                     table.ForeignKey(
-                        name: "FK_Fattura_Cliente_ClienteId1",
-                        column: x => x.ClienteId1,
+                        name: "FK_Fattura_Cliente_ClienteId",
+                        column: x => x.ClienteId,
                         principalTable: "Cliente",
                         principalColumn: "ClienteId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -132,7 +132,6 @@ namespace EFGetStarted.AspNetCore.NewDb.Migrations
                     AcquistiID = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     ClienteId = table.Column<int>(nullable: false),
-                    ClienteId1 = table.Column<string>(nullable: true),
                     SpedizioneId = table.Column<int>(nullable: false),
                     FatturaId = table.Column<int>(nullable: false)
                 },
@@ -140,11 +139,11 @@ namespace EFGetStarted.AspNetCore.NewDb.Migrations
                 {
                     table.PrimaryKey("PK_Acquisti", x => x.AcquistiID);
                     table.ForeignKey(
-                        name: "FK_Acquisti_Cliente_ClienteId1",
-                        column: x => x.ClienteId1,
+                        name: "FK_Acquisti_Cliente_ClienteId",
+                        column: x => x.ClienteId,
                         principalTable: "Cliente",
                         principalColumn: "ClienteId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Acquisti_Fattura_FatturaId",
                         column: x => x.FatturaId,
@@ -160,9 +159,9 @@ namespace EFGetStarted.AspNetCore.NewDb.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Acquisti_ClienteId1",
+                name: "IX_Acquisti_ClienteId",
                 table: "Acquisti",
-                column: "ClienteId1");
+                column: "ClienteId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Acquisti_FatturaId",
@@ -190,9 +189,9 @@ namespace EFGetStarted.AspNetCore.NewDb.Migrations
                 column: "TipoId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Fattura_ClienteId1",
+                name: "IX_Fattura_ClienteId",
                 table: "Fattura",
-                column: "ClienteId1");
+                column: "ClienteId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
