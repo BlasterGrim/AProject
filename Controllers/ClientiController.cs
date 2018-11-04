@@ -84,7 +84,7 @@ namespace EFGetStarted.AspNetCore.NewDb.Controllers
         {
             ViewData["ContattoId"] = new SelectList(_context.Contatto, "ContattoId", "ContattoId");
             ViewData["IndirizzoId"] = new SelectList(_context.Indirizzo, "IndirizzoId", "IndirizzoId");
-            ViewData["TipoId"] = new SelectList(_context.Tipo, "descrizione", "descrizione");
+            ViewData["TipoId"] = new SelectList(_context.Tipo, "TipoId", "descrizione");
             return View();
         }
 

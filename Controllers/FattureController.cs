@@ -47,7 +47,7 @@ namespace EFGetStarted.AspNetCore.NewDb.Controllers
         // GET: Fatture/Create
         public IActionResult Create()
         {
-            ViewData["ClienteId"] = new SelectList(_context.Cliente, "ClienteId", "cognome");
+            ViewData["ClienteId"] = new SelectList(_context.Cliente, "ClienteId", "nome", "ClienteId", "cognome");
             return View();
         }
 
@@ -64,7 +64,7 @@ namespace EFGetStarted.AspNetCore.NewDb.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ClienteId"] = new SelectList(_context.Cliente, "ClienteId", "cognome", fattura.ClienteId);
+            ViewData["ClienteId"] = new SelectList(_context.Cliente, "ClienteId", "ClienteId", fattura.ClienteId);
             return View(fattura);
         }
 

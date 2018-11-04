@@ -66,7 +66,7 @@ using EFGetStarted.AspNetCore.NewDb.Models;
             WriteLiteral("\r\n<h2>Spedizioni</h2>\r\n\r\n<p>\r\n    ");
             EndContext();
             BeginContext(146, 58, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b500a20822f1409a95c92ad28c8bd588", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac76f92074bd4e1babd4ea41dcde7103", async() => {
                 BeginContext(169, 31, true);
                 WriteLiteral("Crea nuovo tipo di spedizione >");
                 EndContext();
@@ -144,7 +144,7 @@ using EFGetStarted.AspNetCore.NewDb.Models;
             WriteLiteral(" €\r\n            </td>\r\n            <td>\r\n                ");
             EndContext();
             BeginContext(908, 69, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b48a1c72fe954600a526fd404ea5ba4b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6a35c5c9476e47e1bd725f9881bc31cf", async() => {
                 BeginContext(963, 10, true);
                 WriteLiteral("Modifica >");
                 EndContext();
@@ -179,7 +179,7 @@ using EFGetStarted.AspNetCore.NewDb.Models;
             WriteLiteral("\r\n                ");
             EndContext();
             BeginContext(995, 72, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e0cb98ebbca34a55997affe9fbfabafd", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f9ac6cf084fa46b78f6a88c4d2eada6d", async() => {
                 BeginContext(1053, 10, true);
                 WriteLiteral("Dettagli >");
                 EndContext();
@@ -214,7 +214,7 @@ using EFGetStarted.AspNetCore.NewDb.Models;
             WriteLiteral("\r\n                ");
             EndContext();
             BeginContext(1085, 70, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4062b4e824ae4973bd957964a5ba8729", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0200f1588a6f492080fbd0dfeb3d00ce", async() => {
                 BeginContext(1142, 9, true);
                 WriteLiteral("Elimina >");
                 EndContext();

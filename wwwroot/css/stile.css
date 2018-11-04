@@ -2,86 +2,94 @@
     font-family: beats;
     /*src: url("\wwwroot\fonts\SFPro\TrueType\SFProDisplay-Thin.ttf");*/
     src: url("/fonts/SFPro/TrueType/SFProText-Regular.ttf");
- }
+}
 
- @font-face {
+@font-face {
     font-family: apple;
     /*src: url("\wwwroot\fonts\SFPro\TrueType\SFProDisplay-Thin.ttf");*/
     src: url("/fonts/SFPro/TrueType/SFProDisplay-Semibold.ttf");
- }
-
- body
- {
-     padding-top: 70px !important;
- }
-
- .font
- {
-     background-color: #0a0b0f;
-     font-family: beats;
-     color: white;
-
- }
-
- .font2
- {
-     padding-top: 0px !important;
-     margin: 0;
-     padding: 0;
-     border: 0;
-     margin: 0;
-     background-color: #757575;
-     font-family: apple;
- }
-
- .nav3
- {
-     text-align: center;
- }
-
- .nav3 > li
- {
-     margin-left: 40px;
- }
-
- .navbar-nav > li > a
- {
-    color: white !important;
-    transition: opacity 0.5s;
- }
-
- .navbar-nav > li > a:hover
- {
-    opacity: .45;
- }
-
- @keyframes esempio {
-    0%   {border-bottom: 5px solid orange; border-width: 0px; top:0px;}
-    25%  {border-bottom: 5px solid orange; border-width: 10px; top:0px;}
-    50%  {border-bottom: 5px solid orange; border-width: 20px; top:0px;}
-    75%  {border-bottom: 5px solid orange; border-width: 10px; top:0px;}
-    100% {border-bottom: 5px solid orange; border-width: 0px; top:0px;}
 }
 
-h2
-{
+body {
+    padding-top: 70px !important;
+}
+
+.font {
+    background-color: #0a0b0f;
+    font-family: beats;
+    color: white;
+}
+
+.font2 {
+    padding-top: 0px !important;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    margin: 0;
+    background-color: #757575;
+    font-family: apple;
+}
+
+.nav3 {
+    text-align: center;
+}
+
+.nav3>li {
+    margin-left: 40px;
+}
+
+.navbar-nav>li>a {
+    color: white !important;
+    transition: opacity 0.5s;
+}
+
+.navbar-nav>li>a:hover {
+    opacity: .45;
+}
+
+@keyframes esempio {
+    0% {
+        border-bottom: 5px solid orange;
+        border-width: 0px;
+        top: 0px;
+    }
+    25% {
+        border-bottom: 5px solid orange;
+        border-width: 10px;
+        top: 0px;
+    }
+    50% {
+        border-bottom: 5px solid orange;
+        border-width: 20px;
+        top: 0px;
+    }
+    75% {
+        border-bottom: 5px solid orange;
+        border-width: 10px;
+        top: 0px;
+    }
+    100% {
+        border-bottom: 5px solid orange;
+        border-width: 0px;
+        top: 0px;
+    }
+}
+
+h2 {
     font-size: 35px;
     margin-bottom: 10px;
 }
 
-.navbar-brand
-{
+.navbar-brand {
     color: rgb(255, 255, 255) !important;
     font-size: 20px;
 }
 
-p
-{
+p {
     margin-bottom: 20px;
 }
 
-.banner
-{
+.banner {
     position: absolute;
     top: 40%;
     left: 0;
@@ -91,8 +99,7 @@ p
     font-size: 40px;
 }
 
-.ubanner
-{
+.ubanner {
     position: absolute;
     top: 50%;
     left: 0;
@@ -103,58 +110,50 @@ p
     font-family: beats;
 }
 
-.ubanner > a
-{
+.ubanner>a {
     text-decoration: none;
     color: white;
     transition: color 0.5s;
 }
 
-.ubanner > a:hover
-{
+.ubanner>a:hover {
     color: black;
 }
 
-canvas
-{
+canvas {
     margin: 0;
     padding: 0;
-    display: block; /*  ¯\_(ツ)_/¯  */
-    touch-action: none; 
+    display: block;
+    /*  ¯\_(ツ)_/¯  */
+    touch-action: none;
 }
 
-.button
-{
+.button {
     margin-left: 30px;
     border: 0;
     background: transparent;
     color: white;
 }
 
-.button:focus
-{
+.button:focus {
     outline: none;
     border: 0;
 }
 
-img
-{
+img {
     filter: invert(1);
     transition: opacity 0.5s;
 }
 
-img:hover
-{
+img:hover {
     opacity: .35;
 }
 
-thead
-{
+thead {
     letter-spacing: 1px;
 }
 
-.itext > input
-{
+.itext>input {
     vertical-align: middle;
     margin: 0;
     margin-right: 10px;
@@ -164,50 +163,62 @@ thead
     border-radius: 4px;
 }
 
-.itext > input:focus
-{
+.itext>input:focus {
     outline: transparent;
 }
 
-.rad
-{
-  cursor: pointer;
-  user-select: none;
-  -webkit-user-select: none;
-  -webkit-touch-callout: none;
+.itext>label>input>div {
+    vertical-align: middle;
 }
 
-.rad > input
-{ /* HIDE ORG RADIO & CHECKBOX */
-  position: absolute;
-  opacity: 0;
-  width: 0;
-  height: 0;
+.rad {
+    vertical-align: middle;
+    height: 22px;
+    padding: 1px;
+    margin: 0;
+    font-weight: normal;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+
+.rad>input {
+    /* HIDE ORG RADIO & CHECKBOX */
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
 }
 
 /* RADIO & CHECKBOX STYLES */
+
 /* DEFAULT <i> STYLE */
-.rad > i
-{ 
-  display: inline-block;
-  vertical-align: middle;
-  width:  16px;
-  height: 16px;
-  border-radius: 50%;
-  transition: 0.2s;
-  box-shadow: inset 0 0 0 8px #fff;
-  border: 1px solid gray;
-  background: gray;
+
+.rad>i {
+    display: inline-block;
+    vertical-align: text-bottom;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    transition: 0.2s;
+    box-shadow: inset 0 0 0 8px #fff;
+    border: 1px solid gray;
+    background: gray;
 }
 
-.rad:hover > i
-{ /* HOVER <i> STYLE */
-  box-shadow: inset 0 0 0 3px #fff;
-  background: gray;
+.rad:hover>i {
+    /* HOVER <i> STYLE */
+    box-shadow: inset 0 0 0 3px #fff;
+    background: gray;
 }
 
-.rad > input:checked + i
-{ /* (RADIO CHECKED) <i> STYLE */
-  box-shadow: inset 0 0 0 3px #fff;
-  background: #337ab7;
+.cbox:checked {
+    opacity: .45;
+}
+
+.rad>input:checked+i {
+    /* (RADIO CHECKED) <i> STYLE */
+    box-shadow: inset 0 0 0 3px #fff;
+    background: #337ab7;
 }

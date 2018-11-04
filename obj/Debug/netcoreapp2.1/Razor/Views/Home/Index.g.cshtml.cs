@@ -71,7 +71,7 @@ using EFGetStarted.AspNetCore.NewDb.Models;
             WriteLiteral("-->\r\n\r\n");
             EndContext();
             BeginContext(54, 48, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "8bbf9d63faee471d87d203c33d04d2c3", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "b30ae71914dc42e9b9b2c31ebd500419", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -99,12 +99,12 @@ using EFGetStarted.AspNetCore.NewDb.Models;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(135, 346, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "08e17d85c2484547926f22a6f61d1853", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9e88f72f306d4efd9fc59a03ad1c4ed1", async() => {
                 BeginContext(155, 101, true);
                 WriteLiteral("\r\n\r\n<div class=\"banner\">\r\n    Benvenuti in gestione anagrafica\r\n</div>\r\n\r\n<div class=\"ubanner\">\r\n    ");
                 EndContext();
                 BeginContext(256, 112, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "88e2e7b5815d4ed1b3017cec7d784a7f", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7e0865ee7cb64f3d97229f71733a276b", async() => {
                     BeginContext(333, 31, true);
                     WriteLiteral("Premi qui per la lista utenti >");
                     EndContext();
